@@ -13,7 +13,7 @@ mdk3 mon0 b -s 500 -m -a -c 11 -h -f $SSIDPATH &
 while :
 do
   echo "Updating bitcoin ticker..."
-  TICKER="$TICKER" ./ticker.sh | tee $SSIDPATH
+  # mdk3 auto-updates when we change the file, no need to restart
+  ./ticker.sh "$TICKER" | tee $SSIDPATH
   sleep $INTERVAL
 done
-
